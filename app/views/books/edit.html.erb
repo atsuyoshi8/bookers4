@@ -18,4 +18,11 @@
   <%= f.text_area :body %>
 
   <%= f.submit 'Update Book' %>
+
+  <td><% if @book.user == current_user %>
+                  <%= link_to "Show", book_path(@book) %>
+                  <% end %></td>
+  <td><%= link_to :back do %>
+　                <button>Back</button>
+　                <% end %></td>
 <% end %>

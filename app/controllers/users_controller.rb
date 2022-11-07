@@ -1,14 +1,6 @@
 class UsersController < ApplicationController
 
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to user_path, success: '登録ができました'
-    else
-      flash.now[:danger] = "登録に失敗しました"
-      render :new
-    end
-  end
+
 
   def show
     @user = User.find(params[:id])
@@ -33,20 +25,13 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
   if@user.update(user_params)
-    flash[:notice] = "投稿に成功しました。"
-    redirect_to users_path(@user.id)
+    flash[:notice] = "You have updated user successfully."
+    redirect_to user_path(@user.id)
   else
-    flash[:alret] = "投稿に失敗しました。"
-    render "index"
+    render "edit"
   end
   end
 
-  def destroy
-    session.delete(:user_id)
-    @current_user = nil
-    flash[:alert] = "ログアウトしました"
-    redirect_to :root
-  end
 
   private
   def user_params

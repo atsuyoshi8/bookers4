@@ -60,7 +60,7 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
              <li>
-               <%= link_to user_session_path,class: "nav-link text-light" do %>
+               <%= link_to current_user,class: "nav-link text-light" do %>
                 <i class="fas fa-home"></i>Home
                <% end %>
             </li>
@@ -76,7 +76,7 @@
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete,class: "nav-link text-light" do %>
-                <i class="fas fa-sign-out-alt"></i>Log-out
+                <i class="fas fa-sign-out-alt"></i>Log out
               <% end %>
             </li>
             <% else %>
@@ -87,17 +87,17 @@
             </li>
             <li>
                <%= link_to about_path,class: "nav-link text-light" do %>
-                <i class="fas fa-link"></i>about
+                <i class="fas fa-link"></i>About
               <% end %>
             </li>
             <li>
                <%= link_to new_user_registration_path,class: "nav-link text-light" do %>
-                <i class="fas fa-user-plus"></i>Sign-up
+                <i class="fas fa-user-plus"></i>Sign up
               <% end %>
             </li>
             <li>
               <%= link_to new_user_session_path,class: "nav-link text-light" do %>
-                <i class="fas fa-sign-in-alt"></i>Log-in
+                <i class="fas fa-sign-in-alt"></i>Log in
               <% end %>
             </li>
             <% end %>
@@ -106,5 +106,13 @@
     </div>
   </nav>
 </header>
+
+
+    <div class="text-success">
+         <%= flash[:notice] %>
+    </div>
+
+
     <%= yield %>
+  </body>
 </html>
