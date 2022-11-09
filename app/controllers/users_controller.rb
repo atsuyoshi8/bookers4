@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
 
-
   def show
     @user = User.find(params[:id])
     @books = @user.books
@@ -18,7 +17,7 @@ class UsersController < ApplicationController
     if @user == current_user
       render "edit"
     else
-      redirect_to books_path
+      redirect_to user_path(current_user)
     end
   end
 
@@ -29,6 +28,7 @@ class UsersController < ApplicationController
     redirect_to user_path(@user.id)
   else
     render "edit"
+    flash[:alert] = "error"
   end
   end
 

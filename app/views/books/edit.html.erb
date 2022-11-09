@@ -22,7 +22,8 @@
   <td><% if @book.user == current_user %>
                   <%= link_to "Show", book_path(@book) %>
                   <% end %></td>
-  <td><%= link_to :back do %>
-　                <button>Back</button>
-　                <% end %></td>
-<% end %>
+  <td><%= link_to books_path do %>
+　     Back
+　    <% end %>
+　</td>
+      <% end %>
